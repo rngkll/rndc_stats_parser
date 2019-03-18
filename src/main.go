@@ -33,7 +33,6 @@ func parseOutput(s *bufio.Scanner) {
 			SubTitle = strings.Join(s2[1:len(lineF)-2], "_")
 
 		default:
-
 			switch strings.Contains(lineF[0], "[") {
 			case true:
 				continue
