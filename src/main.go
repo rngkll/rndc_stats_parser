@@ -65,7 +65,6 @@ func getSpecificData(input string, data []string) []string {
 
 	for _, line := range data {
 		if input == strings.Join(strings.Split(line, " ")[1:4], " ") {
-			//fmt.Println(line)
 			rValue = append(rValue, line)
 		}
 	}
