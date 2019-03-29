@@ -4,7 +4,7 @@
                 1039 NOTIFY
                  161 UPDATE
 ++ Incoming Queries ++
-            23715921 A
+            23715321 A
               742174 NS
                 1382 CNAME
              4576809 SOA

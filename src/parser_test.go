@@ -28,6 +28,7 @@ func TestParseOutput(t *testing.T) {
 }
 
 func TestGetSpecificData(t *testing.T) {
+	// Test that the function should match only the selected option.
 	lines := []string{"1551387526 Statistics_Dump Incoming A 23715921",
 		"1551387526 Statistics_Dump Incoming NS 742175",
 		"1551387526 Statistics_Dump Incoming CNAME 1382",

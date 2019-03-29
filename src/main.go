@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -113,6 +114,23 @@ func removeDuplicates(elements []string) []string {
 	return result
 }
 
+func avgValueInt(lines []string) int {
+	// Get the average in values per second
+	// of the last 2 lines.
+	l1 := lines[0]
+	l2 := lines[len(lines)-1]
+
+	ts1, _ := strconv.Atoi(strings.Split(l1, " ")[0])
+	ts2, _ := strconv.Atoi(strings.Split(l2, " ")[0])
+	v1, _ := strconv.Atoi(strings.Split(l1, " ")[4])
+	v2, _ := strconv.Atoi(strings.Split(l2, " ")[4])
+
+	sec := ts2 - ts1
+	value := v2 - v1
+	avg := value / sec
+	//fmt.Println("seconds:", sec, "value:", value, "avg:", avg)
+	return avg
+}
 func main() {
 	// Intialize variables using Args
 	statisticsFile := flag.String("sFile", "/var/named/data/named.stats", "Location of the statistics file")
@@ -142,8 +160,7 @@ func main() {
 
 	if *inputOption != "" {
 		list := getSpecificData(*inputOption, pOutput)
-		nl := list[len(list)-1]
-		fmt.Println(strings.Split(nl, " ")[4])
+		fmt.Println(avgValueInt(list))
 		os.Exit(0)
 	}
 

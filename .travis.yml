@@ -1,0 +1,8 @@
+language: go
+
+go:
+        - master
+
+script:
+- go test ./...
+- go build -o rndc_parser $TRAVIS_BUILD_DIR/src/main.go
